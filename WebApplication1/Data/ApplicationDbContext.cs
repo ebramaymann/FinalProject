@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using GraduationProjectIdentity.Models;
+using WebApplication1.Models;
 
 namespace WebApplication1.Data
 {
@@ -13,9 +13,9 @@ namespace WebApplication1.Data
             : base(options)
         {
         }
-        public DbSet<GraduationProjectIdentity.Models.Good> Good { get; set; }
-        public DbSet<GraduationProjectIdentity.Models.TypeGood> typeGoods { get; set; }
-        public DbSet<GraduationProjectIdentity.Models.Offer> Offers { get; set; }
+        public DbSet<WebApplication1.Models.Good> Good { get; set; }
+        public DbSet<WebApplication1.Models.TypeGood> typeGoods { get; set; }
+        public DbSet<WebApplication1.Models.Offer> Offers { get; set; }
 
     }
 }

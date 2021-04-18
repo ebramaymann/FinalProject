@@ -19,125 +19,6 @@ namespace WebApplication1.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Bill", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("DatePayment")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("Idgoods")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdgoodsNavigationId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Idtrade")
-                        .HasColumnType("int");
-
-                    b.Property<decimal?>("PriceForPic")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdgoodsNavigationId");
-
-                    b.ToTable("Bill");
-                });
-
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Good", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ExpireDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Idoffers")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdoffersNavigationId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Idtg")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdtgNavigationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Images")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Size")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdoffersNavigationId");
-
-                    b.HasIndex("IdtgNavigationId");
-
-                    b.ToTable("Good");
-                });
-
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Offer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("IdtyG")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IdtyGNavigationId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Offer1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Size")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdtyGNavigationId");
-
-                    b.ToTable("Offers");
-                });
-
-            modelBuilder.Entity("GraduationProjectIdentity.Models.TypeGood", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("typeGoods");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -334,37 +215,143 @@ namespace WebApplication1.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Bill", b =>
+            modelBuilder.Entity("WebApplication1.Models.Bill", b =>
                 {
-                    b.HasOne("GraduationProjectIdentity.Models.Good", "IdgoodsNavigation")
-                        .WithMany("Bills")
-                        .HasForeignKey("IdgoodsNavigationId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Navigation("IdgoodsNavigation");
+                    b.Property<DateTime?>("DatePayment")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Idgoods")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdgoodsNavigationId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Idtrade")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("PriceForPic")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdgoodsNavigationId");
+
+                    b.ToTable("Bill");
                 });
 
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Good", b =>
+            modelBuilder.Entity("WebApplication1.Models.Cart", b =>
                 {
-                    b.HasOne("GraduationProjectIdentity.Models.Offer", "IdoffersNavigation")
-                        .WithMany("Goods")
-                        .HasForeignKey("IdoffersNavigationId");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasOne("GraduationProjectIdentity.Models.TypeGood", "IdtgNavigation")
-                        .WithMany("Goods")
-                        .HasForeignKey("IdtgNavigationId");
+                    b.Property<int?>("_Shopping_ProductId")
+                        .HasColumnType("int");
 
-                    b.Navigation("IdoffersNavigation");
+                    b.Property<int>("_Shopping_quantity")
+                        .HasColumnType("int");
 
-                    b.Navigation("IdtgNavigation");
+                    b.HasKey("ID");
+
+                    b.HasIndex("_Shopping_ProductId");
+
+                    b.ToTable("items");
                 });
 
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Offer", b =>
+            modelBuilder.Entity("WebApplication1.Models.Good", b =>
                 {
-                    b.HasOne("GraduationProjectIdentity.Models.TypeGood", "IdtyGNavigation")
-                        .WithMany("Offers")
-                        .HasForeignKey("IdtyGNavigationId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Navigation("IdtyGNavigation");
+                    b.Property<string>("ExpireDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Idoffers")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdoffersNavigationId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Idtg")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdtgNavigationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Images")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdoffersNavigationId");
+
+                    b.HasIndex("IdtgNavigationId");
+
+                    b.ToTable("Good");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Offer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("IdtyG")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdtyGNavigationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Offer1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdtyGNavigationId");
+
+                    b.ToTable("Offers");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.TypeGood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("typeGoods");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -418,17 +405,59 @@ namespace WebApplication1.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Good", b =>
+            modelBuilder.Entity("WebApplication1.Models.Bill", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Good", "IdgoodsNavigation")
+                        .WithMany("Bills")
+                        .HasForeignKey("IdgoodsNavigationId");
+
+                    b.Navigation("IdgoodsNavigation");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Cart", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Good", "_Shopping_Product")
+                        .WithMany()
+                        .HasForeignKey("_Shopping_ProductId");
+
+                    b.Navigation("_Shopping_Product");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Good", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Offer", "IdoffersNavigation")
+                        .WithMany("Goods")
+                        .HasForeignKey("IdoffersNavigationId");
+
+                    b.HasOne("WebApplication1.Models.TypeGood", "IdtgNavigation")
+                        .WithMany("Goods")
+                        .HasForeignKey("IdtgNavigationId");
+
+                    b.Navigation("IdoffersNavigation");
+
+                    b.Navigation("IdtgNavigation");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Offer", b =>
+                {
+                    b.HasOne("WebApplication1.Models.TypeGood", "IdtyGNavigation")
+                        .WithMany("Offers")
+                        .HasForeignKey("IdtyGNavigationId");
+
+                    b.Navigation("IdtyGNavigation");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Good", b =>
                 {
                     b.Navigation("Bills");
                 });
 
-            modelBuilder.Entity("GraduationProjectIdentity.Models.Offer", b =>
+            modelBuilder.Entity("WebApplication1.Models.Offer", b =>
                 {
                     b.Navigation("Goods");
                 });
 
-            modelBuilder.Entity("GraduationProjectIdentity.Models.TypeGood", b =>
+            modelBuilder.Entity("WebApplication1.Models.TypeGood", b =>
                 {
                     b.Navigation("Goods");
 

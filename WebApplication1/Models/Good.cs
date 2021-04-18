@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
-namespace GraduationProjectIdentity.Models
+namespace WebApplication1.Models
 {
     public partial class Good
     {

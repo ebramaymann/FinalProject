@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace GraduationProjectIdentity.Models
+namespace WebApplication1.Models
 {
     public partial class Role
     {
