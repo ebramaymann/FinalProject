@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebApplication1.Models;
+
 
 namespace WebApplication1.Data
 {
@@ -16,6 +16,8 @@ namespace WebApplication1.Data
         public DbSet<WebApplication1.Models.Good> Good { get; set; }
         public DbSet<WebApplication1.Models.TypeGood> typeGoods { get; set; }
         public DbSet<WebApplication1.Models.Offer> Offers { get; set; }
+        public DbSet<WebApplication1.Models.Order> Orders { get; set; }
+        public DbSet<WebApplication1.Models.OrderDetails> OrderDetails { get; set; }
 
     }
 }
