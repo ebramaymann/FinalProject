@@ -64,7 +64,16 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <span>
+            <i class="fas fa-trash "></i>
+            <input type="submit" value="Delete" class="btn btn-danger btn-icon-split" />
+
+        </span> ||
+        <a asp-action="Index" class="btn btn-light btn-icon-split">
+            <span class="icon text-gray-600">
+                <i class="fas fa-arrow-right"></i>
+            </span>
+            <span class="text">Back</span>
+        </a>
     </form>
 </div>
