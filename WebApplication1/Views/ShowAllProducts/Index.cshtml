@@ -16,12 +16,12 @@
             <input type="number" class="form-control" name="largeAmount" />
         </div>
         @*<div class="col-3">
-           <select class="form-control" name="TypeGoodsel" >
-                <option >Pipe</option>
-                <option>Tools</option>
-                <option>Facts</option>
-            </select>
-        </div>*@
+               <select class="form-control" name="TypeGoodsel" >
+                    <option >Pipe</option>
+                    <option>Tools</option>
+                    <option>Facts</option>
+                </select>
+            </div>*@
         <div class="col-3">
             <input type="submit" value="Search" class="btn btn-success" name="lowAmount" />
         </div>
@@ -37,105 +37,116 @@
     <tbody>
         <tr>
             <td>*@
-                @*@foreach (var item in Model)
-                {*@
+@*@foreach (var item in Model)
+    {*@
 
-                    <!--<section id="Faucets"--> @*style="z-index:-1"*@
+<!--<section id="Faucets"--> @*style="z-index:-1"*@
 
-                        @*<div class="container-fluid wow fadeInUp" style="width:30%;float:left;">
-                            <div class="row">
-                                <div class="div col text-center shadow-lg  bg-white">
-                                    <div class="div1">
-                                        <div class="div_inner">
-                                            <div class="div_front">
-                                                <img src=@("~/Image/"+item.Images) asp-append-version="true" alt="Card image" style=" width:100%" />
-                                                <P>
-                                                    <h2 style="float: left;">Name :<small><i>@item.Name</i></small></h2>
-                                                    <br><br><br>
-                                                <p style="float: left;">It is available :@item.ExpireDate</p>
-                                            </div>
-                                            <div class="div_back" style="padding-top: 60px;">
-                                                <h3>Price</h3>
-                                                <h2> @item.Price</h2>
-                                                <p>Size :@item.Size </p>
-                                                <p>Available Quantity :@item.Quantity </p>
+@*<div class="container-fluid wow fadeInUp" style="width:30%;float:left;">
+                <div class="row">
+                    <div class="div col text-center shadow-lg  bg-white">
+                        <div class="div1">
+                            <div class="div_inner">
+                                <div class="div_front">
+                                    <img src=@("~/Image/"+item.Images) asp-append-version="true" alt="Card image" style=" width:100%" />
+                                    <P>
+                                        <h2 style="float: left;">Name :<small><i>@item.Name</i></small></h2>
+                                        <br><br><br>
+                                    <p style="float: left;">It is available :@item.ExpireDate</p>
+                                </div>
+                                <div class="div_back" style="padding-top: 60px;">
+                                    <h3>Price</h3>
+                                    <h2> @item.Price</h2>
+                                    <p>Size :@item.Size </p>
+                                    <p>Available Quantity :@item.Quantity </p>
 
-                                                <footer class="w3-container w3-teal w3-center w3-margin-top "
-                                                        style="text-align: center;">
-                                                    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-                                                    <i class="fa fa-instagram w3-hover-opacity"></i>
-                                                    <i class="fa fa-snapchat w3-hover-opacity"></i>
-                                                    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-                                                    <i class="fa fa-twitter w3-hover-opacity"></i>
-                                                    <i class="fa fa-linkedin w3-hover-opacity"></i>
-                                                </footer>
-                                               
-                                                <div class="snipcart-details top_brand_home_details">
-                                                    <form action="#" method="post">
-                                                        <fieldset>
-                                                            <input type="hidden" name="cmd" value="_cart" />
-                                                            <input type="hidden" name="add" value="1" />
-                                                            <input type="hidden" name="business" value=" " />
-                                                            <input type="hidden" name="item_name" value="@item.Name" />
-                                                            <input type="hidden" name="amount" value="@item.Price" />
-                                                            <input type="hidden" name="discount_amount" value="1.00" />
-                                                            <input type="hidden" name="currency_code" value="USD" />
-                                                            <input type="hidden" name="return" value=" " />
-                                                            <input type="hidden" name="cancel_return" value=" " />
-                                                            <input type="submit" name="submit" value="Add to cart" class="btn btn-warning" />
-                                                        </fieldset>
-                                                    </form>
-                                                </div>
+                                    <footer class="w3-container w3-teal w3-center w3-margin-top "
+                                            style="text-align: center;">
+                                        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                                        <i class="fa fa-instagram w3-hover-opacity"></i>
+                                        <i class="fa fa-snapchat w3-hover-opacity"></i>
+                                        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                                        <i class="fa fa-twitter w3-hover-opacity"></i>
+                                        <i class="fa fa-linkedin w3-hover-opacity"></i>
+                                    </footer>
 
-
-                                            </div>
-                                        </div>
+                                    <div class="snipcart-details top_brand_home_details">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="business" value=" " />
+                                                <input type="hidden" name="item_name" value="@item.Name" />
+                                                <input type="hidden" name="amount" value="@item.Price" />
+                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                <input type="hidden" name="currency_code" value="USD" />
+                                                <input type="hidden" name="return" value=" " />
+                                                <input type="hidden" name="cancel_return" value=" " />
+                                                <input type="submit" name="submit" value="Add to cart" class="btn btn-warning" />
+                                            </fieldset>
+                                        </form>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                }*@
-            @*</td>
-        </tr>
-    </tbody>
-</table>*@
+    }*@
+@*</td>
+            </tr>
+        </tbody>
+    </table>*@
 
 
 @*@section scripts{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
-    </script>
-}*@
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#myTable').DataTable();
+            });
+        </script>
+    }*@
 
 
 
 @* ================================================================================ *@
-<br /><br />
-<div class="row" >
+<br />
+<br />
+<div class="row">
     @foreach (var item in Model)
     {
-         <div class="col-4" style="margin-bottom:15px;">
-             <div class="card md-4">
-                 <div class="card-header">
-                     <h4 class="my-0 font-weight-normal">
-                         <label style="font-size:23px;color:steelblue">@item.Name</label>
-                     </h4>
-                 </div>
-                 <img src=@("~/Image/"+item.Images) asp-append-version="true" alt="Card image" class="card-img-top" style="height:300px" />
-                 <div class="card-header">
-                     <div class="d-flex justify-content-between align-items-center">
-                         <div class="btn-group">
-                             <label style="font-size:20px;color:#a51313"><b>Price : @item.Price</b></label>
-                         </div>
-                         <a asp-action="Detail" asp-controller="ShowAllProducts" asp-route-id="@item.Id"
-                            class="btn pull-right btn-outline-info">View Details</a>
-                     </div>
-                 </div>
-             </div>
-         </div>
+        <div class="col-4" style="margin-bottom:15px;">
+            <div class="card md-4">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">
+                        <label style="font-size:23px;color:steelblue">@item.Name</label>
+                    </h4>
+                </div>
+                <img src=@("~/Image/"+item.Images) asp-append-version="true" alt="Card image" class="card-img-top" style="height:300px" />
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <label style="font-size:20px;color:#a51313"><b>Price : @item.Price</b></label>
+                        </div>
+                        <a asp-action="Detail" asp-controller="ShowAllProducts" asp-route-id="@item.Id"
+                           class="btn pull-right btn-outline-info">View Details</a>
+
+                        @* <a asp-action="Detail" asp-controller="ShowAllProducts" method="post" class="btn pull-right btn-outline-info">*@
+                        <!--<form asp-action="Detail"  asp-controller="ShowAllProducts"  method="post" enctype="multipart/form-data">
+                            <input type="submit" value="Add To Cart"  class="btn pull-right btn-outline-info" />-->
+                        @*<a  class="btn pull-right btn-outline-info">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>*@
+                        <!--</form>-->
+                        @*</a>*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 </div>
