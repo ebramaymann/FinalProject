@@ -82,10 +82,6 @@ namespace WebApplication1.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -137,8 +133,6 @@ namespace WebApplication1.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -299,34 +293,6 @@ namespace WebApplication1.Data.Migrations
                     b.ToTable("Good");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Message", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("When")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Messages");
-                });
-
             modelBuilder.Entity("WebApplication1.Models.Offer", b =>
                 {
                     b.Property<int>("Id")
@@ -424,13 +390,6 @@ namespace WebApplication1.Data.Migrations
                     b.ToTable("typeGoods");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.AppUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.HasDiscriminator().HasValue("AppUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -506,15 +465,6 @@ namespace WebApplication1.Data.Migrations
                     b.Navigation("IdtgNavigation");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Message", b =>
-                {
-                    b.HasOne("WebApplication1.Models.AppUser", "Sender")
-                        .WithMany("Messages")
-                        .HasForeignKey("UserID");
-
-                    b.Navigation("Sender");
-                });
-
             modelBuilder.Entity("WebApplication1.Models.Offer", b =>
                 {
                     b.HasOne("WebApplication1.Models.TypeGood", "IdtyGNavigation")
@@ -563,11 +513,6 @@ namespace WebApplication1.Data.Migrations
                     b.Navigation("Goods");
 
                     b.Navigation("Offers");
-                });
-
-            modelBuilder.Entity("WebApplication1.Models.AppUser", b =>
-                {
-                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }
