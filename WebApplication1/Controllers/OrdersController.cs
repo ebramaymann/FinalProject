@@ -45,7 +45,7 @@ namespace WebApplication1.Controllers
             order.OrderNo = GetOrderNo();
             _context.Orders.Add(order);
             _context.SaveChanges();
-            HttpContext.Session.Set("products", null);
+            HttpContext.Session.Set("products", new List<Good>());
             return View();
         }
 

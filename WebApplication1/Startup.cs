@@ -31,7 +31,6 @@ namespace WebApplication1
                 
             options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
 
 
 
@@ -42,7 +41,7 @@ namespace WebApplication1
                 options.Cookie.IsEssential = true;
             });
 
-
+            services.AddSignalR();
 
             services.AddIdentity<IdentityUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -75,11 +74,19 @@ namespace WebApplication1
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<Class>("Home/Index");
+            });
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=ShowAllProducts}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

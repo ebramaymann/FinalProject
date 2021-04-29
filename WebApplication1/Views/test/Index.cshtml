@@ -4,11 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table table-striped border" id="myTable">
     <thead>
         <tr>
@@ -36,7 +31,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Idoffers)
             </th>
-            <th></th>
+
         </tr>
     </thead>
     <tbody>
@@ -67,11 +62,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Idoffers)
                 </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+
             </tr>
         }
     </tbody>
@@ -91,14 +82,14 @@
             });
         });
 
-        ////---------- for Reports
-        //$(document).ready(function () {
-        //    $('#example').DataTable({
-        //        dom: 'Bfrtip',
-        //        buttons: [
-        //            'copy', 'csv', 'excel', 'pdf', 'print'
-        //        ]
-        //    });
-        //});
+            ////---------- for Reports
+            //$(document).ready(function () {
+            //    $('#example').DataTable({
+            //        dom: 'Bfrtip',
+            //        buttons: [
+            //            'copy', 'csv', 'excel', 'pdf', 'print'
+            //        ]
+            //    });
+            //});
     </script>
 }
